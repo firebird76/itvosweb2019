@@ -1,0 +1,52 @@
+    [HttpPost]
+    public IActionResult InitDb(FileToUploadVM fileToUploadVM)
+    {
+      if (fileToUploadVM.FileToUpload.FileName.ToLower() != "mondial.xml") 
+        return this.BadRequest("Bitte nur Datei mondial.xml laden");
+
+      var stream = fileToUploadVM.FileToUpload.OpenReadStream();
+      string xml;
+
+      using (var sr = new StreamReader(stream))
+      {
+        xml =  sr.ReadToEnd();
+      }
+
+      world.InitDb(xml);
+
+      return RedirectToAction("Index");
+    }
+
+		----------
+
+		public void InitDb(string xml)
+    {
+      XDocument xDoc = XDocument.Parse(xml);
+      var continents = xDoc.Root.Elements("continent")
+        .Select(xContinent => new Continent
+        {
+          Name = xContinent.Element("name").Value,
+          Area = (int)xContinent.Element("area"),
+          Countries = xDoc.Root.Elements("country")
+          .Where(xCountry => xCountry.Element("encompassed").Attribute("continent").Value == xContinent.Attribute("id").Value)
+          .Select(xCountry => new Country
+          {
+            Name = xCountry.Element("name").Value,
+            CarCode = xCountry.Attribute("car_code").Value,
+            Population = (int)xCountry.Element("population"),
+            Cities=xCountry.Descendants("city")
+                           .Select(xCity=> new City
+                           {
+                             Name=xCity.Element("name").Value,
+                             Population=(int?)xCity.Element("population")
+                           }).ToList()
+          })
+         .ToList()
+        })
+      .ToList();
+
+      mondialContext.Continents.AddRange(continents);
+      mondialContext.SaveChanges();
+    }
+
+
