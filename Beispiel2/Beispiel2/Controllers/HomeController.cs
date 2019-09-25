@@ -6,24 +6,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Beispiel2.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace Beispiel2.Controllers
 {
   public class HomeController : Controller
   {
     private readonly IConfiguration configuration;
+    private readonly ILogger<HomeController> logger;
+    private readonly Firmenservice firmenservice;
 
-    public HomeController(IConfiguration configuration)
+    public HomeController(IConfiguration configuration, 
+      ILogger<HomeController> logger,
+      Firmenservice firmenservice)
     {
       this.configuration = configuration;
+      this.logger = logger;
+      this.firmenservice = firmenservice;
+      logger.LogInformation("HomeController instanziert");
     }
 
     public IActionResult Index()
     {
-      ViewData["Firma"] = "Hinz und Kunz";
-      ViewBag.Info = configuration.GetValue<string>("Info");
+      logger.LogError("Index aufgerufen");
 
-      return View(Person.Personen);
+      ViewData["Firma"] = firmenservice.GetName();
+      ViewBag.Info = configuration.GetValue<string>("geheim");
+
+      return View(firmenservice.GetMitarbeiter());
     }
 
     public IActionResult Seite2()
