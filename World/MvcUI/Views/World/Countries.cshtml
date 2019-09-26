@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Country>
+
+@{
+    ViewData["Title"] = "Countries";
+}
+
+<h1>Countries of @ViewBag.Continent.Name</h1>
+
+<partial name="CountriesPartial" model="@Model" />

@@ -47,5 +47,18 @@ namespace MvcUI.Controllers
 
       return RedirectToAction("Index");
     }
+
+    public async Task<IActionResult>Countries(int continentId)
+    {
+      var countries = await world.GetCountriesOfContinent(continentId);
+      ViewBag.Continent = await world.GetContinentAsync(continentId);
+      return View(countries);
+    }
+
+    public async Task<IActionResult>CountriesPartial(int continentId)
+    {
+      var countries = await world.GetCountriesOfContinent(continentId);
+      return PartialView(countries);
+    }
   }
 }

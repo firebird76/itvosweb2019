@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcUI", "MvcUI\MvcUI.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldLib", "WorldLib\WorldLib.csproj", "{A7E92A0B-AE3F-477C-85A5-5E046251DCBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorUI", "RazorUI\RazorUI.csproj", "{DFB9B503-0073-4D85-AA5C-BEC996C42F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{2B981227-3138-4CF6-ACDE-F021669C86C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A7E92A0B-AE3F-477C-85A5-5E046251DCBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7E92A0B-AE3F-477C-85A5-5E046251DCBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7E92A0B-AE3F-477C-85A5-5E046251DCBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB9B503-0073-4D85-AA5C-BEC996C42F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB9B503-0073-4D85-AA5C-BEC996C42F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB9B503-0073-4D85-AA5C-BEC996C42F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB9B503-0073-4D85-AA5C-BEC996C42F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B981227-3138-4CF6-ACDE-F021669C86C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B981227-3138-4CF6-ACDE-F021669C86C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B981227-3138-4CF6-ACDE-F021669C86C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B981227-3138-4CF6-ACDE-F021669C86C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

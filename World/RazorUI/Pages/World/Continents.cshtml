@@ -1,0 +1,17 @@
+﻿@page
+@model RazorUI.Pages.World.ContinentsModel
+@{
+    ViewData["Title"] = "Continents";
+}
+
+<h1>Continents</h1>
+
+<table class="table table-striped">
+  @foreach (var continent in Model.Continents)
+  {
+  <tr>
+    <td>@continent.Name</td>
+    <td>@continent.Area</td>
+  </tr>
+  }
+</table>

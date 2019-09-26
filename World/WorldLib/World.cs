@@ -22,6 +22,11 @@ namespace WorldLib
       return await mondialContext.Continents.ToListAsync();
     }
 
+    public async Task<Continent>GetContinentAsync(int id)
+    {
+      return await mondialContext.Continents.SingleOrDefaultAsync(c => c.Id == id);
+    }
+
     public void InitDb(string xml)
     {
       XDocument xDoc = XDocument.Parse(xml);
@@ -52,5 +57,13 @@ namespace WorldLib
       mondialContext.SaveChanges();
     }
 
+    public async Task<IEnumerable<Country>> GetCountriesOfContinent(int continentId)
+    {
+      return await mondialContext
+                    .Countries
+                    .Where(c => c.ContinentId == continentId)
+                    .OrderBy(c=>c.Name)
+                    .ToListAsync();
+    }
   }
 }

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Continent>
 
 @{
-    ViewData["Title"] = "Index";
+  ViewData["Title"] = "Index";
 }
 
 <h1>Continents</h1>
@@ -11,15 +11,31 @@
     <tr>
       <th>Name</th>
       <th>Area</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     @foreach (var continent in Model)
     {
-    <tr>
-      <td>@continent.Name</td>
-      <td>@continent.Area</td>
-    </tr>
+      <tr>
+        <td>@continent.Name</td>
+        <td>@continent.Area</td>
+        <td>
+          <a asp-action="countries" asp-route-continentid="@continent.Id">Countries</a>
+          <button onclick="loadCountries(@continent.Id)" class="btn btn-danger">Countries</button>
+        </td>
+      </tr>
     }
   </tbody>
 </table>
+
+<hr />
+<div id="tc"></div>
+
+@section scripts{
+  <script>
+    function loadCountries(continentId) {
+      $('#tc').load('/world/countriespartial?continentid=' + continentId);
+    }
+  </script>
+}
