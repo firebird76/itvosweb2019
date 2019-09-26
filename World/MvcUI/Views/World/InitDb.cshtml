@@ -1,0 +1,12 @@
+﻿@model FileUploadVM
+@{
+    ViewData["Title"] = "InitDb";
+}
+
+<h1>InitDb</h1>
+
+<form method="post" enctype="multipart/form-data">
+  <input type="file" accept="xml/*" asp-for="FileToUpload" />
+  <button type="submit">Upload</button>
+</form>
+
