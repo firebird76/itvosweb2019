@@ -34,6 +34,18 @@ namespace WorldApi
 
       services.AddScoped<World>();
 
+      services.AddCors(o => 
+      o.AddPolicy("CorsPolicy", builder =>
+      {
+        builder
+          .AllowAnyMethod()
+          .AllowAnyHeader()
+          .AllowCredentials()
+          .AllowAnyOrigin();
+        //.WithOrigins("http://localhost:4200");
+      }));
+
+
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
     }
 
@@ -51,6 +63,9 @@ namespace WorldApi
       }
 
       app.UseHttpsRedirection();
+
+      app.UseCors("CorsPolicy");
+
       app.UseMvc();
     }
   }

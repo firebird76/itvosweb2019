@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Continents</h1>
+
+  <table class="table table-striped">
+    <tr *ngFor="let continent of continents">
+      <td>{{continent.name}}</td>
+      <td>{{continent.area}}</td>
+      <td><button class="btn btn-sm btn-success" (click)="loadCountries(continent.id)">Countries</button></td>
+    </tr>
+  </table>
+
+  <hr *ngIf="countries && countries.length">
+  <table class="table table-striped">
+    <tr *ngFor="let country of countries">
+      <td>{{country.name}}</td>
+      <td>{{country.carCode}}</td>
+      <td>{{country.population}}</td>
+    </tr>
+  </table>
+</div>
