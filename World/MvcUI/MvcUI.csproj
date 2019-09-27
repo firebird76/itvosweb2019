@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -15,6 +15,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WorldLib\WorldLib.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\a12\Controllers\" />
+    <Folder Include="Areas\a12\Data\" />
+    <Folder Include="Areas\a12\Models\" />
+    <Folder Include="Areas\a12\Views\" />
+    <Folder Include="Areas\Area51\Controllers\" />
+    <Folder Include="Areas\Area51\Data\" />
+    <Folder Include="Areas\Area51\Models\" />
+    <Folder Include="Areas\Area51\Views\" />
   </ItemGroup>
 
 </Project>

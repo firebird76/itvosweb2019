@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,6 +18,7 @@ namespace WorldLib
     [Display(Name="Fläche")]
     public int Area { get; set; }
 
+    [JsonIgnore]
     public IEnumerable<Country> Countries { get; set; }
   }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,9 +12,12 @@ namespace WorldLib
     public string CarCode { get; set; }
     public int Population { get; set; }
 
+    [JsonIgnore]
     public IEnumerable<City> Cities { get; set; }
 
+    [JsonIgnore]
     public Continent Continent { get; set; }
+
     public int ContinentId { get; set; }
   }
 }
